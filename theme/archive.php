@@ -16,8 +16,7 @@
     <section class="post_excerpt">
       <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
       <div class="post_excerpt--img">
-        <?php if (has_post_thumbnail()): // サムネイルを持っているとき 
-        ?>
+        <?php if (has_post_thumbnail()): ?>
           <a href="<?php the_permalink(); ?>">
             <?php the_post_thumbnail(); ?>
           </a>

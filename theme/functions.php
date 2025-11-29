@@ -72,11 +72,6 @@ function allsite_style_script()
   wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', array());
   wp_enqueue_style('reset');
 
-  wp_register_style('swipercss', get_template_directory_uri() . '/css/swiper-bundle.min.css', array());
-  wp_enqueue_style('swipercss');
-
-  //プラグインやwebフォントなど追加のCSSはこの辺に書きます。
-
   //カスタムcss
   wp_register_style('custom', get_template_directory_uri() . '/css/style.css', array());
   wp_enqueue_style('custom');
@@ -91,17 +86,9 @@ function header_style_script()
 {
   if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
-    //swiper-bundle.min.jsの読み込み
-    wp_register_script('swiperjs', get_template_directory_uri() . '/js/swiper-bundle.min.js', array('jquery'));
-    wp_enqueue_script('swiperjs');
-
     //テーマ用のjsファイルを読み込み
     wp_register_script('mainscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'));
     wp_enqueue_script('mainscripts');
-
-    //swiper用のjsファイルを読み込み
-    wp_register_script('slider', get_template_directory_uri() . '/js/slider.js', array('jquery'));
-    wp_enqueue_script('slider');
 
     // ページ専用jsの読み込みが必要な時は下記のように使う。
     //    wp_register_script('scriptname', get_template_directory_uri().'/js/scriptname.js', array('jquery'));
@@ -124,7 +111,7 @@ add_action('wp_enqueue_scripts', 'header_style_script');
 //★deferだと動作しない場合は、jquery-coreについてはdeferをやめると良い。
 function add_defer_script($tag, $handle, $url)
 {
-  if ('jquery-migrate' === $handle || 'mainscripts' === $handle || 'slider' === $handle) {
+  if ('jquery-migrate' === $handle || 'mainscripts' === $handle) {
     $tag = '<script src="' . esc_url($url) . '" defer></script>';
   }
   return $tag;
