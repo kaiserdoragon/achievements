@@ -9,7 +9,7 @@
 
       // 2. WP_Query用の引数設定
       $args = array(
-        'posts_per_page' => 9,       // 1ページあたりの表示数
+        'posts_per_page' => 15,       // 1ページあたりの表示数
         'post_type'      => 'post',
         'post_status'    => 'publish',
         'orderby'        => 'date',

@@ -55,8 +55,15 @@ table {
 
 .bold {
   // font-weight: boldのとき、文字がにじんで見える場合はこのclassで太字にする（YuGothic Midiumを使わないようにする）
-  font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "YuGothic",
-    "Yu Gothic", "Meiryo", sans-serif;
+  font-family:
+    "Helvetica Neue",
+    "Arial",
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "YuGothic",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
   font-weight: bold;
 }
 
@@ -64,30 +71,44 @@ table {
 // 下層ページ汎用
 // ---------------------------------------------
 
-// パンくずリスト
-.breadcrumbs {
-  padding: 5px 0;
+.eyecatch {
+  margin-bottom: 30px;
 
-  li {
-    display: inline-block;
-    line-height: 1;
+  p {
+    position: relative;
+    width: fit-content;
+    padding: 0 10px 10px;
+    margin: auto;
+    text-align: center;
 
     &::before {
-      display: inline-block;
-      vertical-align: top;
-      content: "＞";
-    }
-
-    &:first-child::before {
-      content: normal;
+      position: absolute;
+      bottom: -3px;
+      left: calc(50% - 30px);
+      width: 60px;
+      height: 3px;
+      content: "";
+      background: #004494;
     }
   }
+}
+
+.toppage_link {
+  display: block;
+  width: fit-content;
+  padding: 10px 15px;
+  margin: auto;
+  color: #fff;
+  text-decoration: underline;
+  background: #004494;
+  border-radius: 1000px;
 }
 
 // ページネーション／ページャ
 .pagination {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 
   & > span,
   a {
@@ -104,36 +125,5 @@ table {
 
   &:empty {
     display: none;
-  }
-}
-
-// タブ切り替え
-.tab_select {
-  // .tab_select--nav
-  &--nav {
-    display: flex;
-  }
-
-  // .tab_select--tab_wrap
-  &--tab_wrap {
-    position: relative;
-  }
-
-  // .tab_select--tab
-  &--tab {
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    visibility: hidden;
-    opacity: 0;
-
-    &.is-show {
-      position: relative;
-      pointer-events: fill;
-      visibility: visible;
-      opacity: 1;
-      transition: 0.8s;
-    }
   }
 }

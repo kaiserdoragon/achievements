@@ -13,7 +13,7 @@
   // .top_info--wrap
   &--wrap {
     box-sizing: border-box;
-    width: min(1250px, 100%);
+    width: min(1450px, 100%);
     padding: 0 min(4vw, 25px);
     margin: auto;
   }
@@ -55,7 +55,7 @@
       width: 100%;
       height: auto;
       aspect-ratio: 16 / 9;
-      background: #dbf3ff;
+      background: #def4ff;
       box-shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
       transition:
         transform 0.8s

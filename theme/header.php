@@ -18,15 +18,39 @@
 				<h1 class="header--logo">
 					<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="トータルスマート株式会社" width="139" height="29"></a>
 				</h1>
-				<h2>制作実績サイト</h2>
-				<button id="js-gnav_btn" class="gnav_btn">
+				<h2><a href="<?php echo esc_url(home_url('/')); ?>">WEB制作実績サイト</a></h2>
+				<?php
+				$categories = get_categories(array(
+					'include' => array(1, 3), // 表示したいカテゴリIDをこの順に並べる
+					'hide_empty' => false,
+					'orderby'    => 'include', // この指定がポイント
+				));
+
+				if (! empty($categories)) {
+					echo '<ul>';
+					foreach ($categories as $category) {
+						$cat_link = get_category_link($category->term_id);
+						if (! is_wp_error($cat_link)) {
+							echo '<li><a href="' . esc_url($cat_link) . '">'
+								. esc_html($category->name) .
+								'</a></li>';
+						}
+					}
+					echo '</ul>';
+				}
+				?>
+				<!-- <button id="js-gnav_btn" class="gnav_btn">
 					<span></span>
 					<span></span>
 					<span></span>
 				</button>
 				<nav id="js-gnav" class="gnav">
 					<?php
-					$categories = get_the_category();
+					$categories = get_categories(array(
+						'include' => array(1, 3), // 表示したいカテゴリIDをこの順に並べる
+						'hide_empty' => false,
+						'orderby'    => 'include', // この指定がポイント
+					));
 
 					if (! empty($categories)) {
 						echo '<ul>';
@@ -41,7 +65,7 @@
 						echo '</ul>';
 					}
 					?>
+				</nav> -->
 
-				</nav>
 			</div>
 		</header>
