@@ -5,7 +5,7 @@
     $term = get_queried_object();
 
     if ($term instanceof WP_Term) {
-      echo '<p>' . esc_html($term->name) . 'の記事一覧</p>';
+      echo '<p>' . esc_html($term->name) . 'の制作一覧</p>';
     }
   }
   ?>
